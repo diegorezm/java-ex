@@ -1,6 +1,5 @@
 package classes;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayDeNumeros {
@@ -23,7 +22,8 @@ public class ArrayDeNumeros {
     public int tamanhoColecao() {
         return colecao.length;
     }
-
+    
+    // a
     public boolean adiciona(int numero) {
         if (cont < colecao.length) {
             colecao[cont] = numero;
@@ -32,11 +32,11 @@ public class ArrayDeNumeros {
         }
         return false;
     }
-
+    
     public void cleanColect() {
         cont = 0;
     }
-
+    // c
     public int somar() {
         int res = 0;
         for (int i = 0; i <= colecao.length - 1; i++) {
@@ -44,7 +44,7 @@ public class ArrayDeNumeros {
         }
         return res;
     }
-
+    // e
     public int[] sort() {
         for (int i = 0; i < colecao.length; i++) {
             for (int j = 0; j < colecao.length - 1; j++) {
@@ -57,7 +57,7 @@ public class ArrayDeNumeros {
         }
         return colecao;
     }
-
+    // d
     public int[] inverter() {
         int i = colecao.length - 1;
         int j = 0;
@@ -69,12 +69,14 @@ public class ArrayDeNumeros {
         }
         return aux;
     }
-
+    
+    // b
     public void randomColect() {
         Random rand = new Random();
-        while (adiciona(rand.nextInt(colecao.length)));
+        while (adiciona(rand.nextInt(colecao.length + 1)));
     }
 
+    // k
     public int[] valoresPar() {
         int[] aux = new int[colecao.length];
         int j = 0;
@@ -86,7 +88,7 @@ public class ArrayDeNumeros {
         }
         return aux;
     }
-
+    // i
     public int[] eDivisivel(int num) {
         int[] aux = new int[cont];
         int j = 0;
@@ -97,21 +99,7 @@ public class ArrayDeNumeros {
         }
         return aux;
     }
-
-    public String histograma() {
-        StringBuilder dados = new StringBuilder("Valores da coleção:\n");
-        for (int i = 0; i < cont; i++) {
-            String histograma = "";
-            int j = 0;
-            while (j < colecao[i]) {
-                histograma += "=";
-                j++;
-            }
-            dados.append(i + " :  \t").append(colecao[i] + "\t").append(histograma).append("\n");
-        }
-        return dados.toString();
-    }
-
+    // l
     public int maisRepetido() {
         int res = 0;
         int[] digits = new int[cont];
@@ -132,8 +120,10 @@ public class ArrayDeNumeros {
         }
         return res;
     }
-
-    public int binarySearch(int target) {
+    // f
+    public int binarySearch(int target) throws Exception {
+        long tempoComeco = System.currentTimeMillis();
+        long tempoLimite = 2000;
         int esq = 0;
         int dir = cont - 1;
         while (esq <= dir) {
@@ -146,10 +136,45 @@ public class ArrayDeNumeros {
             } else {
                 dir = mid + 1;
             }
+            long tempoAgora = System.currentTimeMillis();
+            if (tempoAgora - tempoComeco > tempoLimite) {
+                throw new Exception("TEMPO LIMITE EXCEDIDO!");
+            }
         }
         return -1;
     }
-
+    // g
+    public int[] findIndex(int target) throws Exception{
+        int[] idx = new int[colecao.length];
+        int j = 0;
+        int i = 0;
+        while (i < colecao.length) {
+            if (colecao[i] == target) {
+                idx[j] = i;
+                j++;
+            }
+            i++;
+        }
+        if(j == 0){
+            throw new Exception("INDEX NÃO ENCONTRADO!");
+        }
+        return idx;
+    }
+    // h
+    public int[] subistituir(int target, int num) throws Exception {
+        int cnt = 0;
+        for (int i = 0; i < colecao.length; i++) {
+            if (colecao[i] == target) {
+                colecao[i] = num;
+                cnt += 1;
+            }
+        }
+        if (cnt == 0) {
+            throw new Exception("Valor não encontrado!");
+        }
+        return colecao;
+    }
+    // j
     public String histograma(int[] arr) {
         StringBuilder dados = new StringBuilder("Valores da coleção:\n");
         for (int i = 0; i < arr.length; i++) {
@@ -173,6 +198,28 @@ public class ArrayDeNumeros {
             j++;
         }
         dados.append(num + "\t").append(histograma).append("\n");
+        return dados.toString();
+    }
+
+    public String histograma() {
+        StringBuilder dados = new StringBuilder("Valores da coleção:\n");
+        for (int i = 0; i < cont; i++) {
+            String histograma = "";
+            int j = 0;
+            while (j < colecao[i]) {
+                histograma += "=";
+                j++;
+            }
+            dados.append(i + " :  \t").append(colecao[i] + "\t").append(histograma).append("\n");
+        }
+        return dados.toString();
+    }
+
+    public String dados(int[] arr) {
+        StringBuilder dados = new StringBuilder("Valores da coleção:\n");
+        for (int i = 0; i < arr.length; i++) {
+            dados.append(arr[i]).append("\n");
+        }
         return dados.toString();
     }
 

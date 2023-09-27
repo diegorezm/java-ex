@@ -27,6 +27,13 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTFTamanhoArray = new javax.swing.JTextField();
+        EditModal = new javax.swing.JDialog();
+        jBconfirmModal = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTFTnumTarget = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTFTnumCH = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTFNumero = new javax.swing.JTextField();
@@ -41,6 +48,8 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jPResultado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTAResultado = new javax.swing.JTextArea();
@@ -126,8 +135,98 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
 
         jDDefineTamanhoArrayLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBConfirma, jBTamanhoPadrao});
 
+        EditModal.setTitle("Editar elementos");
+        EditModal.setAlwaysOnTop(true);
+        EditModal.setResizable(false);
+
+        jBconfirmModal.setText("Confirma");
+        jBconfirmModal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBconfirmModalActionPerformed(evt);
+            }
+        });
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel5.setText("Número para mudar");
+
+        jTFTnumTarget.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFTnumTargetActionPerformed(evt);
+            }
+        });
+        jTFTnumTarget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFTnumTargetvalidaCampo(evt);
+            }
+        });
+
+        jLabel6.setText("Número:");
+
+        jTFTnumCH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFTnumCHActionPerformed(evt);
+            }
+        });
+        jTFTnumCH.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFTnumCHvalidaCampo(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jTFTnumTarget, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTFTnumCH, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(128, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFTnumTarget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFTnumCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout EditModalLayout = new javax.swing.GroupLayout(EditModal.getContentPane());
+        EditModal.getContentPane().setLayout(EditModalLayout);
+        EditModalLayout.setHorizontalGroup(
+            EditModalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditModalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(EditModalLayout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(jBconfirmModal, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        EditModalLayout.setVerticalGroup(
+            EditModalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditModalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBconfirmModal)
+                .addGap(12, 12, 12))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicativo para manipular Array Unidimensional - Vetor");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -167,6 +266,7 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Operações:"));
+        jPanel2.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
 
         jBAdiciona.setText("Adiciona");
         jBAdiciona.addActionListener(new java.awt.event.ActionListener() {
@@ -245,6 +345,22 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setText("Substituir valor");
+        jButton11.setActionCommand("Inverter");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Achar index");
+        jButton12.setActionCommand("Inverter");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -261,7 +377,9 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
@@ -290,10 +408,15 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
                 .addComponent(jButton9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton10)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton12)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jPResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado:"));
+        jPResultado.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
 
         jTAResultado.setEditable(false);
         jTAResultado.setColumns(20);
@@ -327,21 +450,21 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -443,9 +566,15 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
             jTFNumero.requestFocusInWindow();
             return;
         }
-        int busca = objArrayDeNumeros.binarySearch(Integer.parseInt(jTFNumero.getText()));
-        jTAResultado.setText(objArrayDeNumeros.histograma(busca));
-
+        try {
+            int busca = objArrayDeNumeros.binarySearch(Integer.parseInt(jTFNumero.getText()));
+            if (busca == -1) {
+                throw new Exception("Valor não encontrado!");
+            }
+            jTAResultado.setText(objArrayDeNumeros.histograma(busca));
+        } catch (Exception e) {
+            jTAResultado.setText(e.getMessage());
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -454,6 +583,71 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         jTAResultado.setText(objArrayDeNumeros.histograma(num));
 
     }//GEN-LAST:event_jButton10ActionPerformed
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        EditModal.setSize(500, 200);
+        EditModal.setLocationRelativeTo(this);
+        EditModal.setVisible(true);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jBconfirmModalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBconfirmModalActionPerformed
+        String raw_target = jTFTnumTarget.getText().replaceAll("\\s+", "");
+        String raw_num = jTFTnumCH.getText().replaceAll("\\s+", "");
+        if (jTFTnumTarget.getText().isEmpty() || jTFTnumCH.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Informe um número", "Aviso", 0);
+            jTFNumero.requestFocusInWindow();
+            return;
+        }
+
+        int target = Integer.parseInt(raw_target);
+        int num = Integer.parseInt(raw_num);
+
+        try {
+            objArrayDeNumeros.subistituir(target, num);
+            jTAResultado.setText(objArrayDeNumeros.histograma());
+
+        } catch (Exception e) {
+            jTAResultado.setText(e.getMessage());
+
+        } finally {
+            jTFTnumCH.setText("");
+            jTFTnumTarget.setText("");
+            EditModal.dispose();
+
+        }
+    }//GEN-LAST:event_jBconfirmModalActionPerformed
+
+    private void jTFTnumTargetvalidaCampo(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFTnumTargetvalidaCampo
+    }//GEN-LAST:event_jTFTnumTargetvalidaCampo
+
+    private void jTFTnumTargetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTnumTargetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTnumTargetActionPerformed
+
+    private void jTFTnumCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTnumCHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTnumCHActionPerformed
+
+    private void jTFTnumCHvalidaCampo(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFTnumCHvalidaCampo
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTnumCHvalidaCampo
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if (jTFNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Informe um número", "Aviso", 0);
+            jTFNumero.requestFocusInWindow();
+            return;
+        }
+        int target = Integer.parseInt(jTFNumero.getText());
+        
+        try {
+            jTAResultado.setText(objArrayDeNumeros.dados(objArrayDeNumeros.findIndex(target)));
+
+        } catch (Exception e) {
+            jTAResultado.setText(e.getMessage());
+        }
+
+
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,16 +663,24 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaManipulaArrayDeInteiros.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -491,11 +693,15 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog EditModal;
     private javax.swing.JButton jBAdiciona;
     private javax.swing.JButton jBConfirma;
     private javax.swing.JButton jBTamanhoPadrao;
+    private javax.swing.JButton jBconfirmModal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -506,13 +712,18 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
     private javax.swing.JDialog jDDefineTamanhoArray;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPResultado;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTAResultado;
     private javax.swing.JTextField jTFNumero;
     private javax.swing.JTextField jTFTamanhoArray;
+    private javax.swing.JTextField jTFTnumCH;
+    private javax.swing.JTextField jTFTnumTarget;
     // End of variables declaration//GEN-END:variables
 }
