@@ -50,6 +50,7 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jBAdiciona1 = new javax.swing.JButton();
         jPResultado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTAResultado = new javax.swing.JTextArea();
@@ -361,6 +362,14 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
             }
         });
 
+        jBAdiciona1.setText("Mostrar lista");
+        jBAdiciona1.setActionCommand("Mostrar lista");
+        jBAdiciona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAdiciona1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -379,7 +388,8 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBAdiciona1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
@@ -388,7 +398,8 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addComponent(jBAdiciona1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBAdiciona)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
@@ -457,14 +468,14 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -579,8 +590,8 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         objArrayDeNumeros.sort();
-        int num = objArrayDeNumeros.maisRepetido();
-        jTAResultado.setText(objArrayDeNumeros.histograma(num));
+        int[] num = objArrayDeNumeros.maisRepetido();
+        jTAResultado.setText(objArrayDeNumeros.dados(num, 1));
 
     }//GEN-LAST:event_jButton10ActionPerformed
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -640,7 +651,7 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
         int target = Integer.parseInt(jTFNumero.getText());
         
         try {
-            jTAResultado.setText(objArrayDeNumeros.dados(objArrayDeNumeros.findIndex(target)));
+            jTAResultado.setText(objArrayDeNumeros.dados(objArrayDeNumeros.findIndex(target),0));
 
         } catch (Exception e) {
             jTAResultado.setText(e.getMessage());
@@ -648,6 +659,10 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jBAdiciona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdiciona1ActionPerformed
+        jTAResultado.setText(objArrayDeNumeros.histograma());
+    }//GEN-LAST:event_jBAdiciona1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -695,6 +710,7 @@ public class TelaManipulaArrayDeInteiros extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog EditModal;
     private javax.swing.JButton jBAdiciona;
+    private javax.swing.JButton jBAdiciona1;
     private javax.swing.JButton jBConfirma;
     private javax.swing.JButton jBTamanhoPadrao;
     private javax.swing.JButton jBconfirmModal;
