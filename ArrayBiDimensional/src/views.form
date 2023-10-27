@@ -87,13 +87,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="243" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="266" max="32767" attributes="0"/>
                   </Group>
                   <Component id="panel_resultado" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,15 +101,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel2" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="panel_resultado" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -162,8 +164,14 @@
       </Layout>
       <SubComponents>
         <Component class="java.awt.TextField" name="input_row">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linhasInputKeyTyped"/>
+          </Events>
         </Component>
         <Component class="java.awt.TextField" name="input_col">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="colunasInputKeyTyped"/>
+          </Events>
         </Component>
         <Component class="java.awt.Label" name="label1">
           <Properties>
@@ -185,19 +193,27 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_e_simetrica" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_sair" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_soma_colunas" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_soma" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_soma_linhas" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_localiza_valor" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_diagonal_secundaria" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_transposta" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_limpar" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_diagonal_principal" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Component id="btn_def_matriz" min="-2" pref="137" max="-2" attributes="0"/>
+                      <Component id="btn_retornar_maior_valor" min="-2" pref="137" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_valores_impar" max="32767" attributes="0"/>
+                          <Component id="btn_sair" max="32767" attributes="0"/>
+                          <Component id="btn_e_simetrica" max="32767" attributes="0"/>
+                          <Component id="btn_soma_colunas" max="32767" attributes="0"/>
+                          <Component id="btn_soma_linhas" max="32767" attributes="0"/>
+                          <Component id="btn_soma" max="32767" attributes="0"/>
+                          <Component id="btn_transposta" max="32767" attributes="0"/>
+                          <Component id="btn_localiza_valor" max="32767" attributes="0"/>
+                          <Component id="btn_diagonal_secundaria" max="32767" attributes="0"/>
+                          <Component id="btn_diagonal_principal" max="32767" attributes="0"/>
+                          <Component id="btn_def_matriz" max="32767" attributes="0"/>
+                          <Component id="btn_limpar" max="32767" attributes="0"/>
+                          <Component id="btn_trocar_valores" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btn_valores_par" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btn_substituir_par_impar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btn_valores_primos" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -205,28 +221,40 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_def_matriz" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_def_matriz" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_limpar" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_limpar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_diagonal_principal" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_diagonal_principal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_diagonal_secundaria" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_diagonal_secundaria" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_localiza_valor" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_localiza_valor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_transposta" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_transposta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_soma" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_soma" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_soma_linhas" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_soma_linhas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_soma_colunas" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_soma_colunas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_e_simetrica" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btn_e_simetrica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_sair" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <Component id="btn_trocar_valores" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_valores_par" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_valores_impar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_valores_primos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_substituir_par_impar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_retornar_maior_valor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_sair" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -304,6 +332,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_soma_colunasActionPerformed"/>
           </Events>
         </Component>
+        <Component class="java.awt.Button" name="btn_e_simetrica">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="&#xc9; simetrica"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_e_simetricaActionPerformed"/>
+          </Events>
+        </Component>
         <Component class="java.awt.Button" name="btn_sair">
           <Properties>
             <Property name="label" type="java.lang.String" value="Sair"/>
@@ -312,12 +348,52 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_sairActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Button" name="btn_e_simetrica">
+        <Component class="java.awt.Button" name="btn_trocar_valores">
           <Properties>
-            <Property name="label" type="java.lang.String" value="&#xc9; simetrica"/>
+            <Property name="label" type="java.lang.String" value="Trocar valores"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_e_simetricaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_trocar_valoresActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="java.awt.Button" name="btn_valores_par">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Valores par"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_valores_parActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="java.awt.Button" name="btn_valores_impar">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Valores impar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_valores_imparActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="java.awt.Button" name="btn_substituir_par_impar">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Substituir par e impar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_substituir_par_imparActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="java.awt.Button" name="btn_valores_primos">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="valores primos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_valores_primosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="java.awt.Button" name="btn_retornar_maior_valor">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Maior valor"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_retornar_maior_valorActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

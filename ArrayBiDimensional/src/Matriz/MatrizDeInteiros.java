@@ -1,5 +1,6 @@
 package Matriz;
 
+import helpers.Contar;
 import java.util.Random;
 
 public class MatrizDeInteiros {
@@ -82,21 +83,9 @@ public class MatrizDeInteiros {
         return diagonal;
     }
 
-    public int contar(int num) {
-        int total = 0;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (matriz[i][j] == num) {
-                    total++;
-                }
-            }
-        }
-        return total;
-    }
-
-    public int[][] findNums(int num) {
+    public int[][] encontrarNumero(int num) {
         int[][] index = null;
-        int linhas = contar(num);
+        int linhas = Contar.contar(num, matriz);
         if (linhas != 0) {
             index = new int[linhas][2];
             int rows = 0;
@@ -157,9 +146,116 @@ public class MatrizDeInteiros {
         }
         return total;
     }
-    public boolean eSimetrica(){
-        if(matriz == matrizTransposta()) return true;
+
+    public boolean eSimetrica() {
+        if (matriz == matrizTransposta()) {
+            return true;
+        }
         return false;
+    }
+
+    public int[] ultimaLinha() {
+        int[] ultimaLinha = new int[row];
+        for (int i = 0; i < col; i++) {
+            ultimaLinha[i] = matriz[row - 1][i];
+        }
+        return ultimaLinha;
+    }
+
+    public int[] primeiraLinha() {
+        int[] primeiraLinha = new int[row];
+        for (int i = 0; i < col; i++) {
+            primeiraLinha[i] = matriz[0][i];
+        }
+        return primeiraLinha;
+    }
+
+    public void substituirLinha() {
+        int[] ultimaLinha = ultimaLinha();
+        int[] primeiraLinha = primeiraLinha();
+        for (int i = 0; i < col; i++) {
+            matriz[0][i] = ultimaLinha[i];
+            matriz[row - 1][i] = primeiraLinha[i];
+        }
+    }
+
+    public int[] valoresPar() {
+        int[] valores = new int[Contar.contarPar(matriz)];
+        int index = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matriz[i][j] % 2 == 0) {
+                    valores[index] = matriz[i][j];
+                    index++;
+                }
+            }
+        }
+
+        return valores;
+    }
+
+    public int[] valoresImpar() {
+        int[] valores = new int[Contar.contarImpar(matriz)];
+        int index = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matriz[i][j] % 2 != 0) {
+                    valores[index] = matriz[i][j];
+                    index++;
+
+                }
+            }
+        }
+        return valores;
+    }
+
+    public int maiorValor() {
+        int valor = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (valor <= matriz[i][j]) {
+                    valor = matriz[i][j];
+                }
+            }
+        }
+        return valor;
+    }
+
+    public void substituirImparPar() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matriz[i][j] % 2 == 0) {
+                    matriz[i][j] = 1;
+                } else {
+                    matriz[i][j] = -1;
+                }
+            }
+        }
+    }
+
+    static public boolean ePrimo(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int[] valoresPrimos() {
+        int[] numerosPrimos = new int[Contar.contarPrimos(matriz)];
+        int index = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (ePrimo(matriz[i][j])) {
+                    numerosPrimos[index] = matriz[i][j];
+                }
+            }
+        }
+        return numerosPrimos;
     }
 
     public String dados() {
@@ -170,6 +266,11 @@ public class MatrizDeInteiros {
             }
             dados.append("\n");
         }
+        return dados.toString();
+    }
+
+    public String dados(int input, String texto) {
+        StringBuilder dados = new StringBuilder(texto + input);
         return dados.toString();
     }
 
@@ -209,11 +310,11 @@ public class MatrizDeInteiros {
             for (int numero : input) {
                 dados.append(numero + "\n");
             }
-        } else if(tipo.equals("row")){
+        } else if (tipo.equals("row")) {
             for (int numero : input) {
                 dados.append(numero + "\t");
             }
-        }else{
+        } else {
             return "Por favor forneça um tipo válido (row ou col)!";
         }
         return dados.toString();

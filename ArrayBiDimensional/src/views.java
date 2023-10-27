@@ -20,6 +20,14 @@ public class views extends javax.swing.JFrame {
         btn_soma_colunas.setEnabled(state);
         btn_soma_linhas.setEnabled(state);
         btn_e_simetrica.setEnabled(state);
+        btn_valores_impar.setEnabled(state);
+        btn_valores_par.setEnabled(state);
+        btn_trocar_valores.setEnabled(state);
+        btn_valores_impar.setEnabled(state);
+        btn_valores_par.setEnabled(state);
+        btn_substituir_par_impar.setEnabled(state);
+        btn_valores_primos.setEnabled(state);
+        btn_retornar_maior_valor.setEnabled(state);
     }
 
     @SuppressWarnings("unchecked")
@@ -45,8 +53,14 @@ public class views extends javax.swing.JFrame {
         btn_soma_linhas = new java.awt.Button();
         btn_soma = new java.awt.Button();
         btn_soma_colunas = new java.awt.Button();
-        btn_sair = new java.awt.Button();
         btn_e_simetrica = new java.awt.Button();
+        btn_sair = new java.awt.Button();
+        btn_trocar_valores = new java.awt.Button();
+        btn_valores_par = new java.awt.Button();
+        btn_valores_impar = new java.awt.Button();
+        btn_substituir_par_impar = new java.awt.Button();
+        btn_valores_primos = new java.awt.Button();
+        btn_retornar_maior_valor = new java.awt.Button();
         panel_resultado = new javax.swing.JPanel();
         textarea_results = new java.awt.TextArea();
 
@@ -94,6 +108,18 @@ public class views extends javax.swing.JFrame {
         });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tamanho da matriz: "));
+
+        input_row.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                linhasInputKeyTyped(evt);
+            }
+        });
+
+        input_col.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                colunasInputKeyTyped(evt);
+            }
+        });
 
         label1.setText("Linhas: ");
 
@@ -191,6 +217,13 @@ public class views extends javax.swing.JFrame {
             }
         });
 
+        btn_e_simetrica.setLabel("É simetrica");
+        btn_e_simetrica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_e_simetricaActionPerformed(evt);
+            }
+        });
+
         btn_sair.setLabel("Sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,10 +231,45 @@ public class views extends javax.swing.JFrame {
             }
         });
 
-        btn_e_simetrica.setLabel("É simetrica");
-        btn_e_simetrica.addActionListener(new java.awt.event.ActionListener() {
+        btn_trocar_valores.setLabel("Trocar valores");
+        btn_trocar_valores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_e_simetricaActionPerformed(evt);
+                btn_trocar_valoresActionPerformed(evt);
+            }
+        });
+
+        btn_valores_par.setLabel("Valores par");
+        btn_valores_par.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_valores_parActionPerformed(evt);
+            }
+        });
+
+        btn_valores_impar.setLabel("Valores impar");
+        btn_valores_impar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_valores_imparActionPerformed(evt);
+            }
+        });
+
+        btn_substituir_par_impar.setLabel("Substituir par e impar");
+        btn_substituir_par_impar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_substituir_par_imparActionPerformed(evt);
+            }
+        });
+
+        btn_valores_primos.setLabel("valores primos");
+        btn_valores_primos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_valores_primosActionPerformed(evt);
+            }
+        });
+
+        btn_retornar_maior_valor.setLabel("Maior valor");
+        btn_retornar_maior_valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_retornar_maior_valorActionPerformed(evt);
             }
         });
 
@@ -212,45 +280,64 @@ public class views extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_e_simetrica, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_soma_colunas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_soma, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_soma_linhas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_localiza_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_diagonal_secundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_transposta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_diagonal_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_def_matriz, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(btn_retornar_maior_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_valores_impar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_e_simetrica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_soma_colunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_soma_linhas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_soma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_transposta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_localiza_valor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_diagonal_secundaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_diagonal_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_def_matriz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_trocar_valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_valores_par, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_substituir_par_impar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_valores_primos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_def_matriz, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_def_matriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_diagonal_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_diagonal_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_diagonal_secundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_diagonal_secundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_localiza_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_localiza_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_transposta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_transposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_soma, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_soma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_soma_linhas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_soma_linhas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_soma_colunas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_soma_colunas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_e_simetrica, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_e_simetrica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(btn_trocar_valores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_valores_par, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_valores_impar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_valores_primos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_substituir_par_impar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_retornar_maior_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         panel_resultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado: "));
@@ -285,23 +372,24 @@ public class views extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 243, Short.MAX_VALUE))
+                        .addGap(0, 266, Short.MAX_VALUE))
                     .addComponent(panel_resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(80, 80, 80)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panel_resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(panel_resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -319,25 +407,18 @@ public class views extends javax.swing.JFrame {
     private void btn_def_matrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_def_matrizActionPerformed
         String col_raw = input_col.getText();
         String row_raw = input_row.getText();
-        try {
-            if (row_raw.isEmpty() || col_raw.isEmpty()) {
-                JOptionPane.showMessageDialog(this,"Os campos 'linha' e 'coluna' precisam ser preenchidos.", "Aviso", 0 );
-                return;
-            }
-            int col = Integer.parseInt(col_raw);
-            int row = Integer.parseInt(row_raw);
-            matriz = new MatrizDeInteiros(col, row);
-            matriz.gerarMatriz();
-            setState(true);
-            textarea_results.setText(matriz.dados());
-           } catch (NumberFormatException e) {
-            System.err.println(e.getMessage());
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }finally{
-            input_col.setText("");
-            input_row.setText("");
+        if (row_raw.isEmpty() || col_raw.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Os campos 'linha' e 'coluna' precisam ser preenchidos.", "Aviso", 0);
+            return;
         }
+        int col = Integer.parseInt(col_raw);
+        int row = Integer.parseInt(row_raw);
+        matriz = new MatrizDeInteiros(col, row);
+        matriz.gerarMatriz();
+        setState(true);
+        textarea_results.setText(matriz.dados());
+        input_col.setText("");
+        input_row.setText("");
     }//GEN-LAST:event_btn_def_matrizActionPerformed
 
     private void btn_diagonal_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_diagonal_principalActionPerformed
@@ -358,22 +439,21 @@ public class views extends javax.swing.JFrame {
     private void btn_modal_localizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modal_localizarActionPerformed
         String num_raw = textfield_modal_localiza.getText();
         int num = Integer.parseInt(num_raw);
-        int[][] resultado = matriz.findNums(num);
+        int[][] resultado = matriz.encontrarNumero(num);
 
         if (resultado != null) {
-            textarea_results.setText(matriz.dados()+ matriz.dados(resultado, "\nO número " + num + " foi encontrado nos indexes:\n"));
+            textarea_results.setText(matriz.dados() + matriz.dados(resultado, "\nO número " + num + " foi encontrado nos indexes:\n"));
 
         } else {
-            textarea_results.setText(matriz.dados() +"\nO número não foi encontrado...");
+            textarea_results.setText(matriz.dados() + "\nO número não foi encontrado...");
         }
         ModalLocaliza.dispose();
     }//GEN-LAST:event_btn_modal_localizarActionPerformed
 
     private void btn_localiza_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_localiza_valorActionPerformed
         ModalLocaliza.setTitle("Localizar um número");
-        ModalLocaliza.setSize(500,220);
+        ModalLocaliza.setSize(500, 220);
         ModalLocaliza.setVisible(true);
-
     }//GEN-LAST:event_btn_localiza_valorActionPerformed
 
     private void btn_soma_linhasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_soma_linhasActionPerformed
@@ -406,6 +486,54 @@ public class views extends javax.swing.JFrame {
             textarea_results.append("A matriz não é simétrica.\n");
         }
     }//GEN-LAST:event_btn_e_simetricaActionPerformed
+
+    private void btn_trocar_valoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_trocar_valoresActionPerformed
+        matriz.substituirLinha();
+        textarea_results.setText(matriz.dados());
+    }//GEN-LAST:event_btn_trocar_valoresActionPerformed
+
+    private void btn_valores_imparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valores_imparActionPerformed
+        int[] impar = matriz.valoresImpar();
+        textarea_results.setText(matriz.dados(impar, "Valores impares: \n"));
+    }//GEN-LAST:event_btn_valores_imparActionPerformed
+
+    private void btn_valores_parActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valores_parActionPerformed
+        int[] par = matriz.valoresPar();
+        textarea_results.setText(matriz.dados(par, "Os valores pares: \n"));
+    }//GEN-LAST:event_btn_valores_parActionPerformed
+
+    private void btn_substituir_par_imparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_substituir_par_imparActionPerformed
+        matriz.substituirImparPar();
+        textarea_results.setText(matriz.dados());
+    }//GEN-LAST:event_btn_substituir_par_imparActionPerformed
+
+    private void btn_valores_primosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valores_primosActionPerformed
+        int[] primos = matriz.valoresPrimos();
+        textarea_results.setText(matriz.dados(primos, "Os valores primos são: \n"));
+    }//GEN-LAST:event_btn_valores_primosActionPerformed
+
+    private void btn_retornar_maior_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_retornar_maior_valorActionPerformed
+        int maiorValor = matriz.maiorValor();
+        textarea_results.setText(matriz.dados(maiorValor, "O maior valor é:  "));
+    }//GEN-LAST:event_btn_retornar_maior_valorActionPerformed
+
+    private void linhasInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linhasInputKeyTyped
+        char tecla = evt.getKeyChar();
+        if (!Character.isDigit(tecla)) {
+            if (tecla != '\b') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_linhasInputKeyTyped
+
+    private void colunasInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_colunasInputKeyTyped
+        char tecla = evt.getKeyChar();
+        if (!Character.isDigit(tecla)) {
+            if (tecla != '\b') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_colunasInputKeyTyped
 
     public static void main(String args[]) {
         try {
@@ -443,11 +571,17 @@ public class views extends javax.swing.JFrame {
     private java.awt.Button btn_limpar;
     private java.awt.Button btn_localiza_valor;
     private java.awt.Button btn_modal_localizar;
+    private java.awt.Button btn_retornar_maior_valor;
     private java.awt.Button btn_sair;
     private java.awt.Button btn_soma;
     private java.awt.Button btn_soma_colunas;
     private java.awt.Button btn_soma_linhas;
+    private java.awt.Button btn_substituir_par_impar;
     private java.awt.Button btn_transposta;
+    private java.awt.Button btn_trocar_valores;
+    private java.awt.Button btn_valores_impar;
+    private java.awt.Button btn_valores_par;
+    private java.awt.Button btn_valores_primos;
     private java.awt.TextField input_col;
     private java.awt.TextField input_row;
     private javax.swing.JPanel jPanel1;
