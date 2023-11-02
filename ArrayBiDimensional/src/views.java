@@ -1,5 +1,6 @@
 
 import Matriz.MatrizDeInteiros;
+import helpers.Contar;
 import javax.swing.JOptionPane;
 
 public class views extends javax.swing.JFrame {
@@ -28,6 +29,7 @@ public class views extends javax.swing.JFrame {
         btn_substituir_par_impar.setEnabled(state);
         btn_valores_primos.setEnabled(state);
         btn_retornar_maior_valor.setEnabled(state);
+        btn_qtns_aparece.setEnabled(state);
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +40,10 @@ public class views extends javax.swing.JFrame {
         textfield_modal_localiza = new java.awt.TextField();
         label3 = new java.awt.Label();
         btn_modal_localizar = new java.awt.Button();
+        ModalQtnsVezes = new javax.swing.JDialog();
+        textfield_modal_qtnsvezes = new java.awt.TextField();
+        label4 = new java.awt.Label();
+        btn_modal_qtnsvezes = new java.awt.Button();
         jPanel1 = new javax.swing.JPanel();
         input_row = new java.awt.TextField();
         input_col = new java.awt.TextField();
@@ -61,6 +67,7 @@ public class views extends javax.swing.JFrame {
         btn_substituir_par_impar = new java.awt.Button();
         btn_valores_primos = new java.awt.Button();
         btn_retornar_maior_valor = new java.awt.Button();
+        btn_qtns_aparece = new java.awt.Button();
         panel_resultado = new javax.swing.JPanel();
         textarea_results = new java.awt.TextArea();
 
@@ -97,6 +104,42 @@ public class views extends javax.swing.JFrame {
                 .addComponent(textfield_modal_localiza, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(btn_modal_localizar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        ModalQtnsVezes.setModal(true);
+
+        label4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        label4.setText("Numero:");
+
+        btn_modal_qtnsvezes.setLabel("Enviar");
+        btn_modal_qtnsvezes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modal_qtnsvezesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ModalQtnsVezesLayout = new javax.swing.GroupLayout(ModalQtnsVezes.getContentPane());
+        ModalQtnsVezes.getContentPane().setLayout(ModalQtnsVezesLayout);
+        ModalQtnsVezesLayout.setHorizontalGroup(
+            ModalQtnsVezesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModalQtnsVezesLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addGroup(ModalQtnsVezesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_modal_qtnsvezes, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfield_modal_qtnsvezes, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+        ModalQtnsVezesLayout.setVerticalGroup(
+            ModalQtnsVezesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModalQtnsVezesLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textfield_modal_qtnsvezes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btn_modal_qtnsvezes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -273,31 +316,38 @@ public class views extends javax.swing.JFrame {
             }
         });
 
+        btn_qtns_aparece.setLabel("Quantas vezes x aparece");
+        btn_qtns_aparece.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qtns_apareceActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_retornar_maior_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btn_valores_impar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_e_simetrica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_soma_colunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_soma_linhas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_soma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_transposta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_localiza_valor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_diagonal_secundaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_diagonal_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_def_matriz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_trocar_valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_valores_par, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_substituir_par_impar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_valores_primos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_valores_impar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_e_simetrica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_soma_colunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_soma_linhas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_soma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_transposta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_localiza_valor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_diagonal_secundaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_diagonal_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_def_matriz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_trocar_valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_valores_par, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_substituir_par_impar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_valores_primos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_qtns_aparece, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_retornar_maior_valor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -336,8 +386,10 @@ public class views extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_retornar_maior_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_qtns_aparece, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_resultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado: "));
@@ -359,7 +411,7 @@ public class views extends javax.swing.JFrame {
             panel_resultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_resultadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textarea_results, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textarea_results, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -372,7 +424,7 @@ public class views extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 266, Short.MAX_VALUE))
+                        .addGap(0, 247, Short.MAX_VALUE))
                     .addComponent(panel_resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(80, 80, 80)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -448,6 +500,7 @@ public class views extends javax.swing.JFrame {
             textarea_results.setText(matriz.dados() + "\nO número não foi encontrado...");
         }
         ModalLocaliza.dispose();
+        textfield_modal_localiza.setText("");
     }//GEN-LAST:event_btn_modal_localizarActionPerformed
 
     private void btn_localiza_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_localiza_valorActionPerformed
@@ -535,6 +588,27 @@ public class views extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_colunasInputKeyTyped
 
+    private void btn_qtns_apareceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qtns_apareceActionPerformed
+        ModalQtnsVezes.setTitle("Quantas vezes o número aparece");
+        ModalQtnsVezes.setSize(500, 200);
+        ModalQtnsVezes.setVisible(true);
+    }//GEN-LAST:event_btn_qtns_apareceActionPerformed
+
+    private void btn_modal_qtnsvezesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modal_qtnsvezesActionPerformed
+        String raw_num = textfield_modal_qtnsvezes.getText();
+
+        int num = Integer.parseInt(raw_num);
+        int qtnsVezes = Contar.contar(num, matriz.getMatriz());
+        
+        if(qtnsVezes  > 1){
+           textarea_results.append("O número " + num + " aparece " + qtnsVezes + " vezes.");
+        }else{
+            textarea_results.append("O número " + num + " aparece " + qtnsVezes + " vez.");
+        }
+        ModalQtnsVezes.dispose();
+        textfield_modal_qtnsvezes.setText("");
+    }//GEN-LAST:event_btn_modal_qtnsvezesActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -564,6 +638,7 @@ public class views extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog ModalLocaliza;
+    private javax.swing.JDialog ModalQtnsVezes;
     private java.awt.Button btn_def_matriz;
     private java.awt.Button btn_diagonal_principal;
     private java.awt.Button btn_diagonal_secundaria;
@@ -571,6 +646,8 @@ public class views extends javax.swing.JFrame {
     private java.awt.Button btn_limpar;
     private java.awt.Button btn_localiza_valor;
     private java.awt.Button btn_modal_localizar;
+    private java.awt.Button btn_modal_qtnsvezes;
+    private java.awt.Button btn_qtns_aparece;
     private java.awt.Button btn_retornar_maior_valor;
     private java.awt.Button btn_sair;
     private java.awt.Button btn_soma;
@@ -589,8 +666,10 @@ public class views extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
+    private java.awt.Label label4;
     private javax.swing.JPanel panel_resultado;
     private java.awt.TextArea textarea_results;
     private java.awt.TextField textfield_modal_localiza;
+    private java.awt.TextField textfield_modal_qtnsvezes;
     // End of variables declaration//GEN-END:variables
 }

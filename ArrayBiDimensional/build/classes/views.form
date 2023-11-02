@@ -56,6 +56,60 @@
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JDialog" name="ModalQtnsVezes">
+      <Properties>
+        <Property name="modal" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btn_modal_qtnsvezes" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="label4" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                      <Component id="textfield_modal_qtnsvezes" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="110" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="label4" min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="textfield_modal_qtnsvezes" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="btn_modal_qtnsvezes" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="java.awt.TextField" name="textfield_modal_qtnsvezes">
+        </Component>
+        <Component class="java.awt.Label" name="label4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Numero:"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="btn_modal_qtnsvezes">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Enviar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modal_qtnsvezesActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -87,7 +141,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="266" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="247" max="32767" attributes="0"/>
                   </Group>
                   <Component id="panel_resultado" max="32767" attributes="0"/>
               </Group>
@@ -192,26 +246,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_retornar_maior_valor" min="-2" pref="137" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_valores_impar" max="32767" attributes="0"/>
-                          <Component id="btn_sair" max="32767" attributes="0"/>
-                          <Component id="btn_e_simetrica" max="32767" attributes="0"/>
-                          <Component id="btn_soma_colunas" max="32767" attributes="0"/>
-                          <Component id="btn_soma_linhas" max="32767" attributes="0"/>
-                          <Component id="btn_soma" max="32767" attributes="0"/>
-                          <Component id="btn_transposta" max="32767" attributes="0"/>
-                          <Component id="btn_localiza_valor" max="32767" attributes="0"/>
-                          <Component id="btn_diagonal_secundaria" max="32767" attributes="0"/>
-                          <Component id="btn_diagonal_principal" max="32767" attributes="0"/>
-                          <Component id="btn_def_matriz" max="32767" attributes="0"/>
-                          <Component id="btn_limpar" max="32767" attributes="0"/>
-                          <Component id="btn_trocar_valores" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_valores_par" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_substituir_par_impar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_valores_primos" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btn_valores_impar" max="32767" attributes="0"/>
+                      <Component id="btn_sair" max="32767" attributes="0"/>
+                      <Component id="btn_e_simetrica" max="32767" attributes="0"/>
+                      <Component id="btn_soma_colunas" max="32767" attributes="0"/>
+                      <Component id="btn_soma_linhas" max="32767" attributes="0"/>
+                      <Component id="btn_soma" max="32767" attributes="0"/>
+                      <Component id="btn_transposta" max="32767" attributes="0"/>
+                      <Component id="btn_localiza_valor" max="32767" attributes="0"/>
+                      <Component id="btn_diagonal_secundaria" max="32767" attributes="0"/>
+                      <Component id="btn_diagonal_principal" max="32767" attributes="0"/>
+                      <Component id="btn_def_matriz" max="32767" attributes="0"/>
+                      <Component id="btn_limpar" max="32767" attributes="0"/>
+                      <Component id="btn_trocar_valores" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_valores_par" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_substituir_par_impar" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_valores_primos" max="32767" attributes="0"/>
+                      <Component id="btn_qtns_aparece" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_retornar_maior_valor" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
@@ -253,8 +306,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_retornar_maior_valor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_qtns_aparece" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_sair" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="67" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -396,6 +451,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_retornar_maior_valorActionPerformed"/>
           </Events>
         </Component>
+        <Component class="java.awt.Button" name="btn_qtns_aparece">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Quantas vezes x aparece"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qtns_apareceActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panel_resultado">
@@ -421,7 +484,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="textarea_results" max="32767" attributes="0"/>
+                  <Component id="textarea_results" pref="402" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
