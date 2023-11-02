@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Pizza",
+        "image": "https://static.itdg.com.br/images/1200-630/c0402ec0fd16e13c7b7b691151d53e1d/277814-original.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Burger",
+        "image": "https://www.burger21.com/wp-content/uploads/2023/06/Bacon-Cheesy-3-scaled.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Sushi",
+        "image": "https://static.itdg.com.br/images/1200-675/f6b78ccbebbeabbe42f41f117102d007/22411-original.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Ice Cream",
+        "image": "https://www.pbs.org/food/files/2012/07/History-of-Ice-Cream-1.jpg"
+    }
+]
+
