@@ -21,7 +21,7 @@ public class Api {
         connection.setRequestMethod("GET");
         int connResponseCode = connection.getResponseCode();
         if (connResponseCode != 200) {
-            throw new IOException("ARQUIVO NÃO ENCONTRADO!");
+            throw new IOException("NÃO FOI POSSIVEL ESTABELECER UMA CONEXÃO COM A API!");
         }
         return connection;
     }
@@ -36,4 +36,5 @@ public class Api {
         conn.disconnect();
         return usuarios;
     }
+
 }
