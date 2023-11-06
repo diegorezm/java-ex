@@ -1,9 +1,19 @@
 package api.consomeapi.tipos;
 
+import com.google.gson.Gson;
+
 public class Usuarios {
     private int id;
     private String nome, pais;
 
+    public Usuarios() {
+    }
+
+    public Usuarios(String nome, String pais) {
+        this.nome = nome;
+        this.pais = pais;
+    }
+    
     public int getId() {
         return id;
     }
@@ -28,5 +38,8 @@ public class Usuarios {
         this.pais = pais;
     }
 
- 
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
 }
