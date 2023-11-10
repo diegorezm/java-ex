@@ -3,6 +3,7 @@ package api.consumeapi;
 import api.consomeapi.controller.Api;
 import api.consomeapi.tipos.Usuarios;
 import java.io.IOException;
+import javax.swing.SwingWorker;
 
 public class views extends javax.swing.JFrame {
 
@@ -12,7 +13,6 @@ public class views extends javax.swing.JFrame {
 
     public views() {
         initComponents();
-
     }
 
     private void setComidas() {
@@ -25,6 +25,7 @@ public class views extends javax.swing.JFrame {
     }
 
     private void populateList() {
+        textArea.setText("Lista de usuarios: \n");
         for (Usuarios usuario : usuarios) {
             textArea.append("ID: " + usuario.getId() + "\nNOME: " + usuario.getNome() + "\nPAÍS: " + usuario.getPais());
             textArea.append("\n\n");
@@ -93,9 +94,9 @@ public class views extends javax.swing.JFrame {
                 .addGap(82, 82, 82)
                 .addComponent(btn_postar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_consumir, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(284, Short.MAX_VALUE))
         );
 
@@ -183,7 +184,19 @@ public class views extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_consumirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consumirActionPerformed
-        populateList();
+        textArea.setText("Carregando...");
+        SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                setComidas();
+                return null;
+            }
+            @Override
+            protected void done() {
+                populateList();
+            }
+        };
+        worker.execute();
     }//GEN-LAST:event_btn_consumirActionPerformed
 
     private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
@@ -191,7 +204,6 @@ public class views extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_limparActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        setComidas();
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_postarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postarActionPerformed
@@ -221,16 +233,24 @@ public class views extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(views.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(views.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(views.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(views.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(views.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(views.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(views.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(views.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

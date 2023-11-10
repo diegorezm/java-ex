@@ -2,6 +2,7 @@ package api.consomeapi.tipos;
 
 import com.google.gson.Gson;
 
+
 public class Usuarios {
     private int id;
     private String nome, pais;
@@ -37,8 +38,7 @@ public class Usuarios {
     public void setPais(String pais) {
         this.pais = pais;
     }
-
-    public String toJson() {
+    public String toJson(){
         Gson gson = new Gson();
         return gson.toJson(this);
     }

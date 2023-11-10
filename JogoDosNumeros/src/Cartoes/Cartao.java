@@ -21,9 +21,9 @@ public class Cartao {
         return totNumeros;
     }
 
-    public int addNumeros(int numero) {
+    public int addNumeros(int numero) throws Exception{
         if (existe(numero)) {
-            return 0;
+            throw new NumberFormatException("Número já existe...");
         }
         if (totNumeros < numeros.length) {
             numeros[totNumeros] = numero;

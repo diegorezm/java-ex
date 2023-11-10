@@ -2,47 +2,22 @@ package Cartoes;
 
 import java.util.Random;
 
-public class CartaoSorteio  {
-
-    private int[] numerosSorteados;
-
-    public CartaoSorteio() {
-        numerosSorteados = new int[6];
-    }
-
-    public int[] getNumerosSorteados() {
-        return numerosSorteados;
-    }
+public class CartaoSorteio extends Cartao {
     
-    public boolean existe(int numero) {
-        for (int i = 0; i < numerosSorteados.length; i++) {
-            if (numerosSorteados[i] == numero) {
-                return true;
-            }
-        }
-        return false;
+    public CartaoSorteio(int qtde) {
+        super(qtde);
     }
 
     public void sorteiaNumeros() {
         Random random = new Random();
         int i = 0;
-        while(i < numerosSorteados.length){
+        while(i < super.getNumerosLength()){
             int numero = random.nextInt(50) + 1;
-            if(!existe(numero)){
-                numerosSorteados[i] = numero;
-                i++;
+            try {
+                super.addNumeros(numero);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
-
     }
-
-    @Override
-    public String toString() {
-        StringBuilder dados = new StringBuilder("Valores da coleção:\n");
-        for(int num: numerosSorteados){
-            dados.append(num +"\t");
-         }
-        return dados.toString();
-    }
-    
 }

@@ -1,11 +1,15 @@
 package Cartoes;
 
 public class CartaoAposta extends Cartao {
-
+    static public  int numeroAposta;
     public CartaoAposta(int tamanho) {
         super(tamanho);
+        setNumeroAposta();
     }
 
+    private void setNumeroAposta(){
+        numeroAposta++;
+    }
 
     public float calculaAposta() {
         switch (super.getNumerosLength()) {
@@ -25,7 +29,7 @@ public class CartaoAposta extends Cartao {
     }
 
     public int certos(CartaoSorteio sorteio) {
-        int[] numeroSorteados = sorteio.getNumerosSorteados();
+        int[] numeroSorteados = sorteio.getNumeros();
         int[] numerosDoUsuario = super.getNumeros();
         int acertos = 0;
 
@@ -43,9 +47,9 @@ public class CartaoAposta extends Cartao {
     }
 
     public int[] acharCertos(CartaoSorteio sorteio) {
-        int[] nums = new int[certos(sorteio)];
         int j = 0;
-        int[] numeroSorteados = sorteio.getNumerosSorteados();
+        int[] nums = new int[certos(sorteio)];
+        int[] numeroSorteados = sorteio.getNumeros();
         int[] numerosDoUsuario = super.getNumeros();
 
         for (int numeroApostado : numerosDoUsuario) {
@@ -57,7 +61,6 @@ public class CartaoAposta extends Cartao {
                 }
             }
         }
-
         return nums;
     }
 
