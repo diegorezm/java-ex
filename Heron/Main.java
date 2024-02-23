@@ -7,11 +7,13 @@ public class Main {
         double x2,y2,z2;
 
         System.out.println("Lados do triângulo X: ");
+        // LENDO NA MESMA LINHA
         String[] sides1 = scanner.nextLine().split(" ");
         x1 = Double.parseDouble(sides1[0]);
         y1 = Double.parseDouble(sides1[1]);
         z1 = Double.parseDouble(sides1[2]);
         System.out.println("Lados do triângulo Y: ");
+        // LENDO NA MESMA LINHA
         String[] sides2 = scanner.nextLine().split(" ");
         x2 = Double.parseDouble(sides2[0]);
         y2 = Double.parseDouble(sides2[1]);
