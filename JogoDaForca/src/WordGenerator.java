@@ -21,9 +21,7 @@ public class WordGenerator {
             in.close();
             connection.disconnect();
             String stringResponse = response.toString();
-            stringResponse = stringResponse.substring(1,stringResponse.length() - 1);
-            String replaceQuotes = String.valueOf('"');
-            stringResponse = stringResponse.replaceAll(replaceQuotes,"");
+            stringResponse = stringResponse.substring(2,stringResponse.length() - 2);
             return stringResponse;
         }
         return "";
