@@ -8,7 +8,11 @@ public class Estoque {
     public Estoque(List<Produto> produtos) {
         this.produtos = produtos;
     }
-    public void novoProduto(Produto produto){
+    public int getQuantidade(){
+      return this.quantidade;
+    }
+  
+  public void novoProduto(Produto produto){
         this.produtos.add(produto);
         this.quantidade += 1;
     }
@@ -20,6 +24,7 @@ public class Estoque {
         return produto;
     }
 
+  
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("Produtos: \n");
@@ -27,8 +32,10 @@ public class Estoque {
             stringBuilder.append("Nome: " + e.getNome());
             stringBuilder.append("\nCodigo: " + e.getCodigo());
             stringBuilder.append("\nPreço: " + e.getPreco());
+            stringBuilder.append("\nQuantidade: " + e.getQuantidade());
             stringBuilder.append("\n\n");
         });
         return stringBuilder.toString();
     }
 }
+

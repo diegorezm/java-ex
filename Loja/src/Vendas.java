@@ -40,25 +40,26 @@ public class Vendas {
     public void setProdutosComprados(List<Produto> produtosComprados) {
         this.produtosComprados = produtosComprados;
     }
-
-    public void adcionarProdutoAvenda(Produto produtoParaComprar) {
+  
+    public void adcionarProdutoAvenda(Produto produtoParaComprar){
         Produto produto = this.estoque.buscarProdutoPorCodigo(produtoParaComprar.getCodigo());
-        if (produto != null) {
+        if(produto != null){
+          if(produto.getQuantidade() > 0){
             this.produtosComprados.add(produtoParaComprar);
+            produto.removerQuantidade();
+          }
         }
     }
-
-    public void removerProdutoAvenda(Integer codigo) {
+    public  void removerProdutoAvenda(Integer codigo){
         this.produtosComprados.stream().filter(e -> !e.getCodigo().equals(codigo)).collect(Collectors.toList());
     }
-
+  
     public double calcularValorTotal() {
         this.produtosComprados.stream().forEach(e -> {
             this.valorTotal += e.getPreco();
         });
         return this.valorTotal;
     }
-
     public String geraRecibo() {
         StringBuilder stringBuilder = new StringBuilder("Recibo: \n");
         stringBuilder.append("Valor total: " + this.calcularValorTotal());
@@ -71,3 +72,4 @@ public class Vendas {
 
     }
 }
+
