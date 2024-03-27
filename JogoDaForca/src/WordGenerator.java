@@ -3,9 +3,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Random;
 
 public class WordGenerator {
-    public static String genWord() throws IOException {
+    public static String getWord() throws IOException {
         URL url = new URL("https://random-word-api.herokuapp.com/word");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -24,6 +25,11 @@ public class WordGenerator {
             stringResponse = stringResponse.substring(2,stringResponse.length() - 2);
             return stringResponse;
         }
-        return "";
+       return genWord();
+    }
+    public static String genWord(){
+        String[] words = {"Apple", "Banana", "Orange", "Peach", "Grape"};
+        Random random = new Random();
+        return words[random.nextInt(words.length - 1)];
     }
 }
