@@ -9,7 +9,7 @@ public class Stages {
         try {
             switch (stage){
                 case 0, 1, 2, 3,4,5,6 -> {
-                    getStageAcii(stage).forEach(System.out::println);
+                    getStageAscii(stage).forEach(System.out::println);
                 }
                 default -> {
                     throw new IOException();
@@ -20,7 +20,7 @@ public class Stages {
             System.exit(1);
         }
     }
-    public static List<String> getStageAcii(int stage) throws IOException {
+    public static List<String> getStageAscii(int stage) throws IOException {
         String filePath = "src/stages/stage" + stage + ".txt";
         return Files.readAllLines(Paths.get(filePath));
     }
