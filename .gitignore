@@ -1,13 +1,3 @@
-/JogoDosNumeros/target/
-/JogoDosNumeros/nbproject/private/
-/JogoDosNumeros/build/
-/ConsumeApi/nbproject/private/
-/ConsumeApi/build/
-/ConsomeApi/target/
-/ConsumeAPi/nbproject/private/
-/ConsumeAPi/build/
-/OperacoesComDoisNumerosTryCatch/build/
-/CalculaLucroPorMes/build/
-/CalculaLucroPorMes/nbproject/private/
-/Avaliacao_diego_turma_a/nbproject/private/
-/Avaliacao_diego_turma_a/build/
+*/target/
+*/build/
+*.zip
