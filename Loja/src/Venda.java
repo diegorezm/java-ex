@@ -10,7 +10,7 @@ public class Venda {
     private List<Produto> produtosComprados;
     private double valorTotal;
 
-    public Venda(String id,String cliente) {
+    public Venda(String id, String cliente) {
         this.id = id;
         this.data = LocalDateTime.now().toString();
         this.cliente = cliente;
@@ -49,7 +49,6 @@ public class Venda {
     public void adcionarProdutoAvenda(Produto produto) {
         if (produto.getQuantidade() > 0) {
             this.produtosComprados.add(produto);
-            produto.removerQuantidade();
         }
     }
 
@@ -65,14 +64,24 @@ public class Venda {
         for (Produto produtosComprado : this.produtosComprados) {
             valor += produtosComprado.getPreco();
         }
-        this.valorTotal = valor;
         return valor;
+    }
+    private void finalizar() {
+        this.produtosComprados.forEach(Produto::removerQuantidade);
+        this.valorTotal = this.calcularValorTotal();
+    }
+
+    public String gerarRecibo() {
+        StringBuilder stringBuilder = new StringBuilder("Recibo: \n");
+        this.finalizar();
+        stringBuilder.append(this);
+        return stringBuilder.toString();
     }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder("Recibo: \n");
-        stringBuilder.append("Valor total: ").append(this.calcularValorTotal());
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Valor total: ").append(this.valorTotal);
         stringBuilder.append("\nProdutos comprados: \n");
         this.produtosComprados.forEach(e -> {
             stringBuilder.append("\t- Codigo: ").append(e.getCodigo()).append("\n");

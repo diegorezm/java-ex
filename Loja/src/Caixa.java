@@ -8,7 +8,8 @@ public class Caixa {
     private List<Venda> vendas;
     private Estoque estoque;
     private final String[] operacoes = {"1: Listar", "2: Adicionar", "3: Remover", "4: Buscar", "5: Sair"};
-    private final String[] operacoes_venda = {"1: Adicionar produto", "2: Remover Produto", "3: Produtos no carrinho","4: Ver estoque", "5: Finalizar"};
+    private final String[] operacoes_venda = {"1: Adicionar produto no carrinho",
+            "2: Remover Produto do carrinho", "3: Listar produtos no carrinho", "4: Ver estoque", "5: Finalizar"};
     private final String[] operacoes_tipos = {"1: Estoque", "2: Vendas", "3: Sair"};
 
     public Caixa() {
@@ -82,7 +83,7 @@ public class Caixa {
                     break;
                 }
                 case 5: {
-                    System.out.println(venda);
+                    System.out.println(venda.gerarRecibo());
                     this.vendas.add(venda);
                     terminar = true;
                     break;
@@ -105,7 +106,7 @@ public class Caixa {
             op = scanner.nextByte();
             switch (op) {
                 case 1: {
-                    this.vendas.forEach(System.out::println);
+                    this.vendas.forEach(Venda::gerarRecibo);
                     break;
                 }
                 case 2: {
@@ -141,7 +142,6 @@ public class Caixa {
             }
         }
     }
-
     private void estoqueMng(Scanner scanner) {
         boolean terminar = false;
         byte op;
