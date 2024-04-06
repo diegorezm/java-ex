@@ -68,12 +68,11 @@ public class Produto {
 
     @Override
     public String toString() {
-        String stringBuilder = "Produtos: \n" + "Nome: " + this.getNome() +
+        return "Produtos: \n" + "Nome: " + this.getNome() +
                 "\nCodigo: " + this.getCodigo() +
                 "\nPreço: " + this.getPreco() +
                 "\nQuantidade: " + this.getQuantidade() +
                 "\n\n";
-        return stringBuilder;
     }
 }
 

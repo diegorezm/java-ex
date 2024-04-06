@@ -18,16 +18,16 @@ public class Estoque {
         return this.quantidade;
     }
 
-    public void novoProduto(Produto produto) {
+    public void addProduct(Produto produto) {
         this.produtos.add(produto);
         this.quantidade += 1;
     }
 
-    public void removerProduto(Integer codigo) {
+    public void removeProduct(Integer codigo) {
         this.produtos = this.produtos.stream().filter(e -> e.getCodigo() != codigo).collect(Collectors.toList());
     }
 
-    public Produto buscarProdutoPorCodigo(Integer codigo) {
+    public Produto getProductByCodigo(Integer codigo) {
         return this.produtos.stream().filter(e -> e.getCodigo().equals(codigo)).findAny().orElse(null);
     }
 

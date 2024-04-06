@@ -46,34 +46,34 @@ public class Venda {
         this.produtosComprados = produtosComprados;
     }
 
-    public void adcionarProdutoAvenda(Produto produto) {
+    public void addProduct(Produto produto) {
         if (produto.getQuantidade() > 0) {
             this.produtosComprados.add(produto);
         }
     }
 
-    public void removerProdutoAvenda(int codigo) {
+    public void removeProduct(int codigo) {
         this.produtosComprados = this.produtosComprados
                 .stream()
                 .filter(e -> !e.getCodigo().equals(codigo))
                 .collect(Collectors.toList());
     }
 
-    public double calcularValorTotal() {
+    public double calcTotalValue() {
         double valor = 0;
         for (Produto produtosComprado : this.produtosComprados) {
             valor += produtosComprado.getPreco();
         }
         return valor;
     }
-    private void finalizar() {
+    private void prepareReceipt() {
         this.produtosComprados.forEach(Produto::removerQuantidade);
-        this.valorTotal = this.calcularValorTotal();
+        this.valorTotal = this.calcTotalValue();
     }
 
-    public String gerarRecibo() {
+    public String generateReceipt() {
         StringBuilder stringBuilder = new StringBuilder("Recibo: \n");
-        this.finalizar();
+        this.prepareReceipt();
         stringBuilder.append(this);
         return stringBuilder.toString();
     }

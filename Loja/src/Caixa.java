@@ -42,15 +42,15 @@ public class Caixa {
         return this.vendas.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(null);
     }
 
-    private void removerVendaPorId(String id) {
+    private void removeVendaById(String id) {
         this.vendas = this.vendas.stream().filter(e -> e.getId().equals(id)).collect(Collectors.toList());
     }
 
     private void venda(Scanner scanner, String cliente) {
         Venda venda = new Venda("1", cliente);
-        boolean terminar = false;
+        boolean endloop = false;
         byte op;
-        while (!terminar) {
+        while (!endloop) {
             this.printOperacoes(this.operacoes_venda);
             System.out.print("Escolha uma operação: ");
             op = scanner.nextByte();
@@ -59,9 +59,9 @@ public class Caixa {
                     int codigo;
                     System.out.print("Codigo: ");
                     codigo = scanner.nextInt();
-                    Produto produto = this.estoque.buscarProdutoPorCodigo(codigo);
+                    Produto produto = this.estoque.getProductByCodigo(codigo);
                     if (!Objects.isNull(produto)) {
-                        venda.adcionarProdutoAvenda(produto);
+                        venda.addProduct(produto);
                     }
                     break;
                 }
@@ -69,13 +69,13 @@ public class Caixa {
                     int codigo;
                     System.out.print("Codigo: ");
                     codigo = scanner.nextInt();
-                    venda.removerProdutoAvenda(codigo);
+                    venda.removeProduct(codigo);
                     break;
                 }
                 case 3: {
                     List<Produto> produtos = venda.getProdutosComprados();
                     produtos.forEach(System.out::println);
-                    System.out.println("Total: " + venda.calcularValorTotal());
+                    System.out.println("Total: " + venda.calcTotalValue());
                     break;
                 }
                 case 4: {
@@ -83,9 +83,9 @@ public class Caixa {
                     break;
                 }
                 case 5: {
-                    System.out.println(venda.gerarRecibo());
+                    System.out.println(venda.generateReceipt());
                     this.vendas.add(venda);
-                    terminar = true;
+                    endloop = true;
                     break;
                 }
                 default: {
@@ -98,15 +98,15 @@ public class Caixa {
 
 
     private void vendasMng(Scanner scanner) {
-        boolean terminar = false;
+        boolean endloop = false;
         byte op;
-        while (!terminar) {
+        while (!endloop) {
             this.printOperacoes();
             System.out.print("Escolha uma operação: ");
             op = scanner.nextByte();
             switch (op) {
                 case 1: {
-                    this.vendas.forEach(Venda::gerarRecibo);
+                    this.vendas.forEach(Venda::generateReceipt);
                     break;
                 }
                 case 2: {
@@ -120,7 +120,7 @@ public class Caixa {
                     String id;
                     System.out.print("Id da venda: ");
                     id = scanner.next();
-                    this.removerVendaPorId(id);
+                    this.removeVendaById(id);
                     break;
                 }
                 case 4: {
@@ -132,7 +132,7 @@ public class Caixa {
                     break;
                 }
                 case 5: {
-                    terminar = true;
+                    endloop = true;
                     break;
                 }
                 default: {
@@ -143,9 +143,9 @@ public class Caixa {
         }
     }
     private void estoqueMng(Scanner scanner) {
-        boolean terminar = false;
+        boolean endloop = false;
         byte op;
-        while (!terminar) {
+        while (!endloop) {
             this.printOperacoes();
             System.out.print("Escolha uma operação: ");
             op = scanner.nextByte();
@@ -165,28 +165,28 @@ public class Caixa {
                     System.out.print("Preco: ");
                     preco = scanner.nextDouble();
                     Produto produto = new Produto(nome, codigo, preco);
-                    this.estoque.novoProduto(produto);
+                    this.estoque.addProduct(produto);
                     break;
                 }
                 case 3: {
                     int codigo;
                     System.out.print("Codigo: ");
                     codigo = scanner.nextInt();
-                    this.estoque.removerProduto(codigo);
+                    this.estoque.removeProduct(codigo);
                     break;
                 }
                 case 4: {
                     int codigo;
                     System.out.print("Codigo: ");
                     codigo = scanner.nextInt();
-                    Produto produto = this.estoque.buscarProdutoPorCodigo(codigo);
+                    Produto produto = this.estoque.getProductByCodigo(codigo);
                     if (!Objects.isNull(produto)) {
                         System.out.println(produto);
                     }
                     break;
                 }
                 case 5: {
-                    terminar = true;
+                    endloop = true;
                     break;
                 }
                 default: {
@@ -198,9 +198,9 @@ public class Caixa {
     }
 
     public void run(Scanner scanner) {
-        boolean terminar = false;
+        boolean endloop = false;
         byte op;
-        while (!terminar) {
+        while (!endloop) {
             this.printOperacoes(this.operacoes_tipos);
             System.out.print("Escolha uma operação: ");
             op = scanner.nextByte();
@@ -214,7 +214,7 @@ public class Caixa {
                     break;
                 }
                 case 3: {
-                    terminar = true;
+                    endloop = true;
                     break;
                 }
                 default: {
