@@ -10,6 +10,11 @@ public class Conta {
         this.titular = titular;
         this.saldo = saldo;
     }
+    public Conta(Integer numero, String titular) {
+        this.numero = numero;
+        this.titular = titular;
+        this.saldo = 0.0;
+    }
 
     public Integer getNumero() {
         return numero;

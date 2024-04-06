@@ -1,20 +1,25 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Vendas {
+public class Venda {
+    private final String id;
     private String data;
     private String cliente;
     private List<Produto> produtosComprados;
     private double valorTotal;
-    private Estoque estoque;
 
-    public Vendas(String data, String cliente, Estoque estoque) {
-        this.data = data;
+    public Venda(String id,String cliente) {
+        this.id = id;
+        this.data = LocalDateTime.now().toString();
         this.cliente = cliente;
         this.produtosComprados = new ArrayList<>();
         this.valorTotal = 0;
-        this.estoque = estoque;
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public String getData() {
@@ -40,36 +45,39 @@ public class Vendas {
     public void setProdutosComprados(List<Produto> produtosComprados) {
         this.produtosComprados = produtosComprados;
     }
-  
-    public void adcionarProdutoAvenda(Produto produtoParaComprar){
-        Produto produto = this.estoque.buscarProdutoPorCodigo(produtoParaComprar.getCodigo());
-        if(produto != null){
-          if(produto.getQuantidade() > 0){
-            this.produtosComprados.add(produtoParaComprar);
+
+    public void adcionarProdutoAvenda(Produto produto) {
+        if (produto.getQuantidade() > 0) {
+            this.produtosComprados.add(produto);
             produto.removerQuantidade();
-          }
         }
     }
-    public  void removerProdutoAvenda(Integer codigo){
-        this.produtosComprados.stream().filter(e -> !e.getCodigo().equals(codigo)).collect(Collectors.toList());
+
+    public void removerProdutoAvenda(int codigo) {
+        this.produtosComprados = this.produtosComprados
+                .stream()
+                .filter(e -> !e.getCodigo().equals(codigo))
+                .collect(Collectors.toList());
     }
-  
+
     public double calcularValorTotal() {
-        this.produtosComprados.stream().forEach(e -> {
-            this.valorTotal += e.getPreco();
-        });
-        return this.valorTotal;
+        double valor = 0;
+        for (Produto produtosComprado : this.produtosComprados) {
+            valor += produtosComprado.getPreco();
+        }
+        this.valorTotal = valor;
+        return valor;
     }
-    public String geraRecibo() {
+
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder("Recibo: \n");
-        stringBuilder.append("Valor total: " + this.calcularValorTotal());
+        stringBuilder.append("Valor total: ").append(this.calcularValorTotal());
         stringBuilder.append("\nProdutos comprados: \n");
-        this.produtosComprados.stream().forEach(e -> {
-            stringBuilder.append("Codigo: " + e.getCodigo() + "\n");
+        this.produtosComprados.forEach(e -> {
+            stringBuilder.append("\t- Codigo: ").append(e.getCodigo()).append("\n");
         });
-
         return stringBuilder.toString();
-
     }
 }
 
