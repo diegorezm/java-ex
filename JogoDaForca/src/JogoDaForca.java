@@ -88,16 +88,12 @@ public class JogoDaForca {
                 System.out.print(p + "\t");
             }
             System.out.println();
-            Stages.printStages(erros, palavra);
+            Stages.printStages(erros);
             System.out.println();
             System.out.print("Chute uma letra: ");
             letra = scanner.next().charAt(0);
             this.chutarLetra(letra);
-            if (this.ganhou()) {
-                this.ending();
-                break;
-            }
-            if (this.perdeu()) {
+            if(this.ganhou() || this.perdeu()){
                 this.ending();
                 break;
             }
